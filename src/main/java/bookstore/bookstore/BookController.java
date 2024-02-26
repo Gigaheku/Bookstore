@@ -35,4 +35,12 @@ public class BookController {
         model.addAttribute("books", bookRepository.findAll());
         return "booklist";
     }
+    @GetMapping("/editbook/{id}")
+public String showEditBookForm(@PathVariable("id") long id, Model model) {
+    Book book = bookRepository.findById(id)
+      .orElseThrow(() -> new IllegalArgumentException("Invalid book Id:" + id));
+
+    model.addAttribute("book", book);
+    return "editbook";
+}
 }

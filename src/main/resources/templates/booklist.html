@@ -13,6 +13,7 @@
             <th>Publication Year</th>
             <th>ISBN</th>
             <th>Price</th>
+            <th>Actions</th>
         </tr>
         <tr th:each="book : ${books}">
             <td th:text="${book.title}">Title</td>
@@ -20,7 +21,14 @@
             <td th:text="${book.publicationYear}">Year</td>
             <td th:text="${book.isbn}">ISBN</td>
             <td th:text="${book.price}">Price</td>
+            <td>
+                <a th:href="@{/deletebook/{id}(id=${book.id})}">Delete</a>
+                |
+                <a th:href="@{/editbook/{id}(id=${book.id})}">Edit</a>
+            </td>
         </tr>
     </table>
+    <br>
+    <a href="/addbook">Add New Book</a>
 </body>
 </html>
