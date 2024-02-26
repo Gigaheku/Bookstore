@@ -20,7 +20,7 @@ public class Book {
     public Book() {
     }
 
-    // Lisäkonstruktori, jonka avulla voit luoda Book-olion määritetyillä arvoilla
+    // Lisäkonstruktori, jol voe luoda Book-olion määritetyillä arvoilla
     public Book(String title, String author, int publicationYear, String isbn, double price) {
         this.title = title;
         this.author = author;
@@ -77,4 +77,15 @@ public class Book {
     public void setPrice(double price) {
         this.price = price;
     }
+    @Override
+public String toString() {
+    return "Book{" +
+            "id=" + id +
+            ", title='" + title + '\'' +
+            ", author='" + author + '\'' +
+            ", publicationYear=" + publicationYear +
+            ", isbn='" + isbn + '\'' +
+            ", price=" + price +
+            '}';
+}
 }
