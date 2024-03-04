@@ -6,13 +6,23 @@
 </head>
 <body>
     <h1>Edit Book</h1>
-    <form action="#" th:action="@{/editbook}" th:object="${book}" method="post">
+    <form th:action="@{/editbook}" th:object="${book}" method="post">
         <input type="hidden" th:field="*{id}" />
         <p>Title: <input type="text" th:field="*{title}" /></p>
         <p>Author: <input type="text" th:field="*{author}" /></p>
         <p>Publication Year: <input type="number" th:field="*{publicationYear}" /></p>
         <p>ISBN: <input type="text" th:field="*{isbn}" /></p>
         <p>Price: <input type="text" th:field="*{price}" /></p>
+        <p>Category:
+            <select th:field="*{category}">
+                <option value="">Select a category</option>
+                <option th:each="category : ${categories}"
+                        th:value="${category.categoryId}"
+                        th:text="${category.name}"
+                        th:selected="${category.categoryId == book.category.categoryId}">
+                </option>
+            </select>
+        </p>
         <p><input type="submit" value="Save Changes" /></p>
     </form>
     <a href="/booklist">Return to book list</a>
