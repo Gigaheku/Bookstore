@@ -40,7 +40,7 @@ public class BookController {
         Book book = bookRepository.findById(id)
           .orElseThrow(() -> new IllegalArgumentException("Invalid book Id:" + id));
         model.addAttribute("book", book);
-        model.addAttribute("categories", categoryRepository.findAll()); // Lisätty
+        model.addAttribute("categories", categoryRepository.findAll());
         return "editbook";
     }
 

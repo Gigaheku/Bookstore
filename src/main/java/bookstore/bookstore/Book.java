@@ -1,10 +1,6 @@
 package bookstore.bookstore;
 
 import bookstore.bookstore.domain.Category;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 import jakarta.persistence.*;
 
 @Entity
@@ -90,16 +86,17 @@ public class Book {
         this.category = category;
     }
 
-    // toString - exclude category to prevent circular reference
     @Override
-    public String toString() {
-        return "Book{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", author='" + author + '\'' +
-                ", publicationYear=" + publicationYear +
-                ", isbn='" + isbn + '\'' +
-                ", price=" + price +
-                '}';
-    }
+public String toString() {
+    return "Book{" +
+            "id=" + id +
+            ", title='" + title + '\'' +
+            ", author='" + author + '\'' +
+            ", publicationYear=" + publicationYear +
+            ", isbn='" + isbn + '\'' +
+            ", price=" + price +
+            ", category=" + (category != null ? category.getName() : "None") +
+            '}';
+}
+
 }
