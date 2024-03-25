@@ -55,4 +55,9 @@ public class BookController {
         bookRepository.deleteById(id);
         return "redirect:/booklist";
     }
+    @GetMapping("/login")
+    public String login() {
+    return "login";
+}
+
 }

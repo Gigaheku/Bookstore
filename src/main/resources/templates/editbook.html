@@ -19,9 +19,9 @@
                 <option th:each="category : ${categories}"
                         th:value="${category.categoryId}"
                         th:text="${category.name}"
-                        th:selected="${category.categoryId == book.category.categoryId}">
+                        th:selected="${book.category != null ? category.categoryId == book.category.categoryId : false}">
                 </option>
-            </select>
+            </select>            
         </p>
         <p><input type="submit" value="Save Changes" /></p>
     </form>
