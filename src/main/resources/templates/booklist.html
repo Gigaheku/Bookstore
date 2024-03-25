@@ -31,7 +31,7 @@
             <td th:text="${book.price}">Price</td>
             <td th:text="${book.category != null ? book.category.name : 'N/A'}">Category Name</td>
             <td>
-                <a th:href="@{/deletebook/{id}(id=${book.id})}" sec:authorize="hasRole('ADMIN')">Delete</a>
+                <a th:href="@{/deletebook/{id}(id=${book.id})}" sec:authorize="hasRole('ROLE_ADMIN')">Delete</a>
                 |
                 <a th:href="@{/editbook/{id}(id=${book.id})}">Edit</a>
             </td>

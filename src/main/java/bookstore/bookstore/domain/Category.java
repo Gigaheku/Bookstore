@@ -54,7 +54,6 @@ public class Category {
         this.books = books;
     }
 
-    // toString - exclude books to prevent circular reference
     @Override
     public String toString() {
         return "Category{" +
